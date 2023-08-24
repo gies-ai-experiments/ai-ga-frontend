@@ -21,13 +21,12 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Pnpm install
-  # You may pin to the exact commit or the version.
-  # uses: jjs98/pnpm-install-action@f007626222b32398504ea7ef674c7ec1d8fd771d
-  uses: jjs98/pnpm-install-action@v6
-  with:
-    # Working directory
-    directory: # optional, default is .
+      - name: pnpm install, build, and test
+        run: |
+          pnpm install
+          pnpm dev
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
