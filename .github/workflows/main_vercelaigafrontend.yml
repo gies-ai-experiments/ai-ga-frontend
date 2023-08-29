@@ -21,6 +21,11 @@ jobs:
         with:
           node-version: '18.x'
           
+      - name: Install sudo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sudo
+          
       - name: npm install, build, and test
         run: |
           npm install --force
@@ -28,7 +33,7 @@ jobs:
           npm run test --if-present
       
       - name: Zip artifact for deployment
-        run: zip release.zip ./build/* -r
+        run: zip -r release.zip . -i ./build/*
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
