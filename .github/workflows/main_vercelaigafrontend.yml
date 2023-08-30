@@ -29,9 +29,11 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install --force
-          npm install next-auth@latest
           npm run build --if-present
           npm run test --if-present
+
+      - name: Install next-auth
+        run: npm install next-auth@latest
       
       - name: Zip artifact for deployment
         run: zip -r release.zip . -i ./build/*
