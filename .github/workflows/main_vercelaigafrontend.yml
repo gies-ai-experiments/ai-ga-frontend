@@ -60,5 +60,6 @@ jobs:
         with:
           app-name: 'vercelaigafrontend'
           slot-name: 'Production'
+          next-auth: true
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3A581FC770EE4AFF95D1183E050BC5C6 }}
           package: .
