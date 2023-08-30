@@ -29,6 +29,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install --force
+          npm install next-auth@latest
           npm run build --if-present
           npm run test --if-present
       
@@ -53,7 +54,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: node-app
-          next-auth: true
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
