@@ -53,13 +53,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: node-app
-
+          next-auth: true
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'vercelaigafrontend'
           slot-name: 'Production'
-          next-auth: true
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3A581FC770EE4AFF95D1183E050BC5C6 }}
           package: .
